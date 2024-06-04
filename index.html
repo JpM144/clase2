@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- ESTILOS CSS -->
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            height: 500px;
+            width: 500px;
+            border-radius: 20px;
+            border: 2px solid gray;
+            box-shadow: 0 0 10px gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .row {
+            align-items: center;
+            padding-left: 40px;
+            flex-direction: column;
+
+        }
+
+        h3 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
+        .print {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            height: 30px;
+            width: 60px;
+
+        }
+
+        button:hover {
+            background-color: rgb(99, 122, 122);
+            transition: 2s;
+            border: 1px aqua;
+            box-shadow: 0 0 10px black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <input type="text" id="caja_uno">
+            <input type="text" id="caja_dos" disabled placeholder="e">
+            <!-- <input type="text" id="caja_tres">
+            <input type="text" id="caja_cuatro"> -->
+        </div>
+        <h3>PRINT ZONE</h3>
+        <div id="print_name"></div>
+        <label id="cantidad_elementos"></label>
+        <div class="print">
+            <div id="impar"></div>
+            <div id="par"></div>
+        </div>
+
+        <div id="print">
+            <button onclick="enviar()">SEND</button>
+
+        </div>
+    </div>
+    <!-- CODIGO JS -->
+    <script>
+        function enviar() {
+            let caja_uno = document.getElementById("caja_uno").value.trim();
+            let caja_dos = document.getElementById("caja_dos").value.trim();
+            let caja_tres = document.getElementById("caja_tres").value.trim();
+            let caja_cuatro = document.getElementById("caja_cuatro").value.trim();
+
+            let concat = caja_uno + caja_dos + caja_tres + caja_cuatro;
+            document.getElementById("print_name").innerText = caja_uno.toUpperCase() + " " + caja_dos.toUpperCase() + " " + caja_tres.toUpperCase() + " " + caja_cuatro.toUpperCase()
+
+            document.getElementById("cantidad_elementos").innerText = "Tiene " + concat.length + " caracteres"
+
+            // let mx = "";
+            //for (let i = 1; i <= 20; i++) {
+            //     mx += concat.length + " x " + i + " = " + (concat.length * i) + "\n";
+            //}
+            // document.getElementById("print").innerText = mx;
+
+            //let cadena = "";
+            // for (let i = 0; i < concat.length; i++) {
+            //  let letter = concat.charAt(i);
+            //   cadena += (i + 1) + " " + letter + "\n";
+            // }
+            //document.getElementById("print").innerText = cadena;
+
+            let par = "";
+            let impar = "";
+            for (let i = 0; i <= concat.length; i++) {
+                if (i % 2 == 0) {
+                    par += "Los pares son: " + i + "\n";
+                } else {
+                    if (!i % 2 == 0) {
+                        impar += "Los impares son: " + i + "\n";
+                    }
+                }
+            }
+            document.getElementById("par").innerText = par;
+            document.getElementById("impar").innerText = impar;
+
+            
+            for(let i = caja_uno; i < caja_dos; i++){
+                let e = true;
+                let letter2 = caja_uno.charAt(i);
+                if(letter2 = e){
+                    document.getElementById("print").innerText = e;
+                }else{
+                    document.getElementById("print").innerText = e;
+                }
+            }
+
+
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
